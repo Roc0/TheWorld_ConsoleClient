@@ -6,8 +6,12 @@
 
 #include "TheWorld_ClientDll.h"
 #include "client_lib/event.h"
+#include "SpaceWorld.h"
+#include "Entity.h"
+#include <boost/thread/thread.hpp>
 
 HINSTANCE g_hKBEngineDll = NULL;
+typedef std::map<KBEngine::ENTITY_ID, std::tr1::shared_ptr<KBEntity> > ENTITIES;
 
 class MyClientApp : public KBEngine::EventHandle
 {
@@ -30,7 +34,21 @@ protected:
 	bool mShutDown;
 
 private:
+	boost::mutex mKbeEventsMutex;
+	int mDisplayActions;
+	bool mLoginDone;
 	std::queue< std::tr1::shared_ptr<const KBEngine::EventData> > events_;
-	static bool g_hasEvent;
-	static std::string g_accountName;
+	bool mHasEvent;
+	std::string g_accountName;
+	SpaceWorld* mSpaceWorldPtr;
+	KBEntity* mPlayerPtr;
+	KBEntity* mTargetPtr;
+	KBEntity* mMouseTargetPtr;
+	ENTITIES mEntities;
+	bool mServerClosed;
+
+	//AVATAR
+	std::vector<KBEngine::DBID> mAvatarsDBID;
+	std::vector<std::string> mAvatars;
+	//------
 };
