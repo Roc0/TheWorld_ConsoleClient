@@ -4,6 +4,7 @@
 OtherEntity::OtherEntity(KBEngine::ENTITY_ID eid, SpaceWorld *pSpaceWorld) : KBEntity(eid, pSpaceWorld)
 {
 	mInWorld = false;
+	mPlayer = false;
 }
 
 

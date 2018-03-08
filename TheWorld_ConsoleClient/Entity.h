@@ -13,8 +13,9 @@ public:
 
 class KBEntity
 {
-public:
+protected:
 	KBEntity(KBEngine::ENTITY_ID eid, SpaceWorld *pSpaceWorld);
+public:
 	virtual ~KBEntity();
 
 	void setDestPosition(float x, float y, float z)
@@ -69,15 +70,45 @@ public:
 	{
 		mModelScale = modelScale;
 	}
+
+	void setName(const std::string& name)
+	{
+		mName = name;
+	}
 	
 	void inWorld(bool inWorld)
 	{
 		mInWorld = inWorld;
 	}
+
+	void setModelID(uint32_t modelID)
+	{
+		mModelID = modelID;
+	}
 	
+	void setState(uint32_t state)
+	{
+		mState = state;
+	}
+
+	void setHPMax(uint32_t HPMax)
+	{
+		mHPMax = HPMax;
+	}
+
+	void setMPMax(uint32_t MPMax)
+	{
+		mMPMax = MPMax;
+	}
+
 	KBEngine::ENTITY_ID id()const { return mEID; }
 
-	void dumpStatus(int idx);
+	bool IsPlayer() { return mPlayer;  }
+
+	void attack(KBEntity* receiver, uint32_t skillID, uint32_t damageType, uint32_t damage);
+	void recvDamage(KBEntity* attacker, uint32_t skillID, uint32_t damageType, uint32_t damage);
+
+	void dumpStatus(int idx, bool minidump);
 
 protected:
 	KBEngine::ENTITY_ID mEID;				// entityID
@@ -89,4 +120,11 @@ protected:
 	SpaceWorld *mSPaceWorld;
 	float mModelScale;
 	bool mInWorld;
+	bool mPlayer;
+	std::string mName;
+
+	uint32_t mModelID;
+	int32_t mState;
+	int32_t mHPMax;
+	int32_t mMPMax;
 };

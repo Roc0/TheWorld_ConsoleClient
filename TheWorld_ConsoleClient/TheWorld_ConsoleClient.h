@@ -8,10 +8,12 @@
 #include "client_lib/event.h"
 #include "SpaceWorld.h"
 #include "Entity.h"
+#include "Avatar.h"
 #include <boost/thread/thread.hpp>
 
 HINSTANCE g_hKBEngineDll = NULL;
 typedef std::map<KBEngine::ENTITY_ID, std::tr1::shared_ptr<KBEntity> > ENTITIES;
+typedef std::map<KBEngine::DBID, std::tr1::shared_ptr<KBAvatar> > AVATARS;
 
 class MyClientApp : public KBEngine::EventHandle
 {
@@ -41,14 +43,16 @@ private:
 	bool mHasEvent;
 	std::string g_accountName;
 	SpaceWorld* mSpaceWorldPtr;
+	bool mServerClosed;
+
+	//AVATARS
+	ENTITIES mEntities;
 	KBEntity* mPlayerPtr;
 	KBEntity* mTargetPtr;
 	KBEntity* mMouseTargetPtr;
-	ENTITIES mEntities;
-	bool mServerClosed;
+	//------
 
-	//AVATAR
-	std::vector<KBEngine::DBID> mAvatarsDBID;
-	std::vector<std::string> mAvatars;
+	//AVATARS
+	AVATARS mAvatars;
 	//------
 };

@@ -154,6 +154,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Avatar.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="OtherEntity.h" />
     <ClInclude Include="PlayerEntity.h" />
@@ -163,6 +164,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Avatar.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="OtherEntity.cpp" />
     <ClCompile Include="PlayerEntity.cpp" />
