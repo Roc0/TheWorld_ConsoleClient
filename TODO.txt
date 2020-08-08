@@ -1,0 +1,1 @@
+* Impostare gli script client di kbengine_demos_assets (kbengine_demos_assets\scripts\client)
