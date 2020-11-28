@@ -105,14 +105,14 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\..\KBEngine\kbengine\kbe\src\lib\python\PC;..\..\..\KBEngine\kbengine\kbe\src\lib\python\Include;..\..\..\KBEngine\kbengine\kbe\src\lib;..\..\..\KBEngine\kbengine\kbe\src\lib\dependencies\g3dlite;..\..\..\KBEngine\kbengine\kbe\src\server;..\..\..\KBEngine\kbengine\kbe\src\lib/dependencies/log4cxx/src/main/include;..\..\..\KBEngine\kbengine\kbe\src\lib/dependencies;..\..\..\KBEngine\kbengine\kbe\src\lib/dependencies/openssl/include;..\..\..\KBEngine\kbengine\kbe\src\lib/dependencies/fmt/include;..\..\boost_1_65_1;..\..\jsoncpp\include;..\..\TheWorld_ClientDll\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\KBEngine\kbengine\kbe\src\lib\python\PC;..\..\..\KBEngine\kbengine\kbe\src\lib\python\Include;..\..\..\KBEngine\kbengine\kbe\src\lib;..\..\..\KBEngine\kbengine\kbe\src\lib\dependencies\g3dlite;..\..\..\KBEngine\kbengine\kbe\src\server;..\..\..\KBEngine\kbengine\kbe\src\lib/dependencies/log4cxx/src/main/include;..\..\..\KBEngine\kbengine\kbe\src\lib/dependencies;..\..\..\KBEngine\kbengine\kbe\src\lib/dependencies/openssl/include;..\..\..\KBEngine\kbengine\kbe\src\lib/dependencies/fmt/include;..\..\boost_1_65_1;..\..\jsoncpp\include;..\..\TheWorld_ClientDll\;..\..\SDL2-2.0.12\include;.\imgui;.\Recast\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>..\..\..\KBEngine\kbengine\kbe\src\libs;..\..\..\KBEngine\kbengine\kbe\res\scripts\common\DLLs;..\..\boost_1_65_1\lib64-msvc-14.1;..\x64\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>lib_json_d.lib;TheWorld_ClientDll_d.lib;apr-1_d.lib;aprutil-1_d.lib;log4cxx_d.lib;expat_d.lib;Version.lib;netapi32.lib;pyexpat_d.lib;select_d.lib;_ctypes_d.lib;_elementtree_d.lib;unicodedata_d.lib;_hashlib_d.lib;_socket_d.lib;resmgr_d.lib;python37_d.lib;pyscript_d.lib;xml_d.lib;common_d.lib;helper_d.lib;math_d.lib;network_d.lib;thread_d.lib;entitydef_d.lib;client_lib_d.lib;server_d.lib;ws2_32.lib;_ssl_d.lib;Crypt32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>..\..\..\KBEngine\kbengine\kbe\src\libs;..\..\..\KBEngine\kbengine\kbe\res\scripts\common\DLLs;..\..\boost_1_65_1\lib64-msvc-14.1;..\x64\;..\..\SDL2-2.0.12\lib\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>lib_json_d.lib;TheWorld_ClientDll_d.lib;apr-1_d.lib;aprutil-1_d.lib;log4cxx_d.lib;expat_d.lib;Version.lib;netapi32.lib;pyexpat_d.lib;select_d.lib;_ctypes_d.lib;_elementtree_d.lib;unicodedata_d.lib;_hashlib_d.lib;_socket_d.lib;resmgr_d.lib;python37_d.lib;pyscript_d.lib;xml_d.lib;common_d.lib;helper_d.lib;math_d.lib;network_d.lib;thread_d.lib;entitydef_d.lib;client_lib_d.lib;server_d.lib;ws2_32.lib;_ssl_d.lib;Crypt32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;glu32.lib;opengl32.lib;SDL2.lib;SDL2main.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -156,8 +156,18 @@
   <ItemGroup>
     <ClInclude Include="Avatar.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="imgui\imconfig.h" />
+    <ClInclude Include="imgui\imgui.h" />
+    <ClInclude Include="imgui\imgui_impl_opengl2.h" />
+    <ClInclude Include="imgui\imgui_internal.h" />
+    <ClInclude Include="imgui\imstb_rectpack.h" />
+    <ClInclude Include="imgui\imstb_textedit.h" />
+    <ClInclude Include="imgui\imstb_truetype.h" />
     <ClInclude Include="OtherEntity.h" />
     <ClInclude Include="PlayerEntity.h" />
+    <ClInclude Include="Recast\Include\Recast.h" />
+    <ClInclude Include="Recast\Include\RecastAlloc.h" />
+    <ClInclude Include="Recast\Include\RecastAssert.h" />
     <ClInclude Include="SpaceWorld.h" />
     <ClInclude Include="TheWorld_ConsoleClient.h" />
     <ClInclude Include="stdafx.h" />
@@ -166,8 +176,72 @@
   <ItemGroup>
     <ClCompile Include="Avatar.cpp" />
     <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="imgui\imgui.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_demo.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_draw.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_impl_opengl2.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="imgui\imgui_widgets.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="OtherEntity.cpp" />
     <ClCompile Include="PlayerEntity.cpp" />
+    <ClCompile Include="Recast\Source\Recast.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Recast\Source\RecastAlloc.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Recast\Source\RecastArea.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Recast\Source\RecastAssert.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Recast\Source\RecastContour.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Recast\Source\RecastFilter.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Recast\Source\RecastLayers.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Recast\Source\RecastMesh.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Recast\Source\RecastMeshDetail.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Recast\Source\RecastRasterization.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Recast\Source\RecastRegion.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="SpaceWorld.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

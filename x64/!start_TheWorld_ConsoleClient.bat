@@ -14,4 +14,4 @@ del /Q %KBE_BIN_PATH%\log.log
 
 cd /D %curpath%
 start TheWorld_ConsoleClient_d.exe
-pause
+

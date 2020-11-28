@@ -36,36 +36,53 @@ protected:
 	void messagePump(void);
 	virtual void onEvent(const KBEngine::EventData* lpEventData);
 	virtual void doAction(int ch);
-	virtual void PrintMessage(char *message, bool interline = false, bool console = true, KBEMessageType t = Print);
+	virtual void printMessage(char *message, bool interline = false, bool console = true, KBEMessageType t = Print);
+	virtual void doMainLoop(void);
+	virtual void manageInitialMenu(void);
+	virtual void manageGraphicRendering(void);
+	virtual void switchRenderingMode(void);
 
 protected:
-	bool mShutDown;
+	bool m_bShutDown;
 
 private:
-	boost::mutex mKbeEventsMutex;
-	int mDisplayActions;
-	int mSelectAvatarPending;
+	boost::mutex m_KbeEventsMutex;
+	int m_iDisplayActions;
+	int m_iSelectAvatarPending;
 #define SELECT_AVATAR_NOT_PENDING	0
 #define SELECT_AVATAR_PENDING		1
 #define SELECT_AVATAR_DONE			2
-	int mLogin;
+	int m_iLogin;
 #define LOGIN_NOT_DONE				0
 #define LOGIN_STARTED				1
 #define LOGIN_DONE					2
 	std::queue< std::tr1::shared_ptr<const KBEngine::EventData> > events_;
-	bool mHasEvent;
-	std::string g_accountName;
-	SpaceWorld* mSpaceWorldPtr;
-	bool mServerClosed;
+	bool m_bDoSleepInMainLoop;
+	std::string m_sAccountName;
+	SpaceWorld* m_pSpaceWorld;
+	bool m_bServerClosed;
+	bool m_bInitialMenuActive;
+	bool m_bInitRenderingMode;
+
+private:
+	float m_fFieldOfViewAngleY;
+	float m_fZNear;
+	float m_fZFar;
+	float m_bFullScreen;
+	SDL_Window* window;
+	Uint32 m_uiFlags;
+	int m_iWidth;
+	int m_iHeight;
+
 
 	//AVATARS
-	ENTITIES mEntities;
-	KBEntity* mPlayerPtr;
-	KBEntity* mTargetPtr;
-	KBEntity* mMouseTargetPtr;
+	ENTITIES m_Entities;
+	KBEntity* m_pPlayer;
+	KBEntity* m_pTarget;
+	KBEntity* m_pMouseTarget;
 	//------
 
 	//AVATARS
-	AVATARS mAvatars;
+	AVATARS m_Avatars;
 	//------
 };
