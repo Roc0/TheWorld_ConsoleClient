@@ -32,15 +32,22 @@ protected:
 	virtual void kbengine_onEvent(const KBEngine::EventData* lpEventData);
 
 protected:
-	virtual bool setup();
+	virtual bool setup(void);
+	virtual void reset(void);
 	void messagePump(void);
 	virtual void onEvent(const KBEngine::EventData* lpEventData);
-	virtual void doAction(int ch);
+	virtual void doInitialMenuAction(int ch);
 	virtual void printMessage(char *message, bool interline = false, bool console = true, KBEMessageType t = Print);
 	virtual void doMainLoop(void);
 	virtual void manageInitialMenu(void);
 	virtual void manageGraphicRendering(void);
-	virtual void switchRenderingMode(void);
+	enum _RenderingMode
+	{
+		InitialMenu,
+		GraphicMode
+	};
+	virtual void setRenderingMode(_RenderingMode r, bool bForce = false);
+	virtual _RenderingMode getRenderingMode(void);
 
 protected:
 	bool m_bShutDown;
@@ -61,18 +68,24 @@ private:
 	std::string m_sAccountName;
 	SpaceWorld* m_pSpaceWorld;
 	bool m_bServerClosed;
-	bool m_bInitialMenuActive;
 	bool m_bInitRenderingMode;
+	_RenderingMode renderingMode;
+
 
 private:
 	float m_fFieldOfViewAngleY;
 	float m_fZNear;
 	float m_fZFar;
 	float m_bFullScreen;
-	SDL_Window* window;
+	SDL_Window* m_window;
+	SDL_GLContext m_gl_context;
 	Uint32 m_uiFlags;
 	int m_iWidth;
 	int m_iHeight;
+	ImGuiIO *m_pIo;
+	bool m_bShow_demo_window;
+	bool m_bShow_another_window;
+
 
 
 	//AVATARS
