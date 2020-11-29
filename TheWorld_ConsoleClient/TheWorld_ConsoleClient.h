@@ -33,7 +33,7 @@ protected:
 
 protected:
 	virtual bool setup(void);
-	virtual void reset(void);
+	virtual void unsetup(void);
 	void messagePump(void);
 	virtual void onEvent(const KBEngine::EventData* lpEventData);
 	virtual void doInitialMenuAction(int ch);
@@ -46,15 +46,18 @@ protected:
 		InitialMenu,
 		GraphicMode
 	};
-	virtual void setRenderingMode(_RenderingMode r, bool bForce = false);
+	virtual void setRenderingMode(enum _RenderingMode r, bool bForce = false);
 	virtual _RenderingMode getRenderingMode(void);
+
+private:
+	virtual void imguiDemoWindow(ImVec4& clear_color);
 
 protected:
 	bool m_bShutDown;
 
 private:
 	boost::mutex m_KbeEventsMutex;
-	int m_iDisplayActions;
+	//int m_iDisplayActions;
 	int m_iSelectAvatarPending;
 #define SELECT_AVATAR_NOT_PENDING	0
 #define SELECT_AVATAR_PENDING		1
@@ -69,7 +72,7 @@ private:
 	SpaceWorld* m_pSpaceWorld;
 	bool m_bServerClosed;
 	bool m_bInitRenderingMode;
-	_RenderingMode renderingMode;
+	enum _RenderingMode renderingMode;
 
 
 private:
@@ -85,6 +88,7 @@ private:
 	ImGuiIO *m_pIo;
 	bool m_bShow_demo_window;
 	bool m_bShow_another_window;
+	bool m_bShow_helloworld_window;
 
 
 
