@@ -25,6 +25,30 @@
     <Filter Include="Source Files\Recast">
       <UniqueIdentifier>{af9fb7c8-b412-436c-94d1-f6962da832f0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\RecastDemo">
+      <UniqueIdentifier>{11c53465-653b-4b29-93f2-ba7c946f9384}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\RecastDemo">
+      <UniqueIdentifier>{0a748476-644c-48ee-9dc5-30bcf7d338db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\DebugUtils">
+      <UniqueIdentifier>{01d7d22f-4d5b-4ff7-9c09-767c6ad4ef29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DebugUtils">
+      <UniqueIdentifier>{323949da-43dc-4dfb-ac65-74edc7f3d99d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Detour">
+      <UniqueIdentifier>{3ca6195a-68f2-46ee-93e5-1f1c66fded7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Detour">
+      <UniqueIdentifier>{4bfc8870-ff41-47e9-a610-b2dbd2d95645}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\DetourTileCache">
+      <UniqueIdentifier>{a35620e2-ef8d-4aee-b454-58e63b1771fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\DetourTileCache">
+      <UniqueIdentifier>{2751518e-8eb0-48ef-842c-063eb4009a67}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -83,6 +107,63 @@
     </ClInclude>
     <ClInclude Include="imgui\imgui_impl_sdl.h">
       <Filter>Header Files\imgui</Filter>
+    </ClInclude>
+    <ClInclude Include="RecastDemo\Include\InputGeom.h">
+      <Filter>Header Files\RecastDemo</Filter>
+    </ClInclude>
+    <ClInclude Include="RecastDemo\Include\ChunkyTriMesh.h">
+      <Filter>Header Files\RecastDemo</Filter>
+    </ClInclude>
+    <ClInclude Include="RecastDemo\Include\MeshLoaderObj.h">
+      <Filter>Header Files\RecastDemo</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugUtils\Include\DebugDraw.h">
+      <Filter>Header Files\DebugUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugUtils\Include\DetourDebugDraw.h">
+      <Filter>Header Files\DebugUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugUtils\Include\RecastDebugDraw.h">
+      <Filter>Header Files\DebugUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugUtils\Include\RecastDump.h">
+      <Filter>Header Files\DebugUtils</Filter>
+    </ClInclude>
+    <ClInclude Include="Detour\Include\DetourAlloc.h">
+      <Filter>Header Files\Detour</Filter>
+    </ClInclude>
+    <ClInclude Include="Detour\Include\DetourAssert.h">
+      <Filter>Header Files\Detour</Filter>
+    </ClInclude>
+    <ClInclude Include="Detour\Include\DetourCommon.h">
+      <Filter>Header Files\Detour</Filter>
+    </ClInclude>
+    <ClInclude Include="Detour\Include\DetourMath.h">
+      <Filter>Header Files\Detour</Filter>
+    </ClInclude>
+    <ClInclude Include="Detour\Include\DetourNavMesh.h">
+      <Filter>Header Files\Detour</Filter>
+    </ClInclude>
+    <ClInclude Include="Detour\Include\DetourNavMeshBuilder.h">
+      <Filter>Header Files\Detour</Filter>
+    </ClInclude>
+    <ClInclude Include="Detour\Include\DetourNavMeshQuery.h">
+      <Filter>Header Files\Detour</Filter>
+    </ClInclude>
+    <ClInclude Include="Detour\Include\DetourNode.h">
+      <Filter>Header Files\Detour</Filter>
+    </ClInclude>
+    <ClInclude Include="Detour\Include\DetourStatus.h">
+      <Filter>Header Files\Detour</Filter>
+    </ClInclude>
+    <ClInclude Include="DetourTileCache\Include\DetourTileCache.h">
+      <Filter>Header Files\DetourTileCache</Filter>
+    </ClInclude>
+    <ClInclude Include="DetourTileCache\Include\DetourTileCacheBuilder.h">
+      <Filter>Header Files\DetourTileCache</Filter>
+    </ClInclude>
+    <ClInclude Include="RecastDemo\Include\PerfTimer.h">
+      <Filter>Header Files\RecastDemo</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +238,57 @@
     </ClCompile>
     <ClCompile Include="imgui\imgui_impl_sdl.cpp">
       <Filter>Source Files\imgui</Filter>
+    </ClCompile>
+    <ClCompile Include="RecastDemo\Source\InputGeom.cpp">
+      <Filter>Source Files\RecastDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugUtils\Source\DebugDraw.cpp">
+      <Filter>Source Files\DebugUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugUtils\Source\DetourDebugDraw.cpp">
+      <Filter>Source Files\DebugUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugUtils\Source\RecastDebugDraw.cpp">
+      <Filter>Source Files\DebugUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugUtils\Source\RecastDump.cpp">
+      <Filter>Source Files\DebugUtils</Filter>
+    </ClCompile>
+    <ClCompile Include="Detour\Source\DetourAlloc.cpp">
+      <Filter>Source Files\Detour</Filter>
+    </ClCompile>
+    <ClCompile Include="Detour\Source\DetourAssert.cpp">
+      <Filter>Source Files\Detour</Filter>
+    </ClCompile>
+    <ClCompile Include="Detour\Source\DetourCommon.cpp">
+      <Filter>Source Files\Detour</Filter>
+    </ClCompile>
+    <ClCompile Include="Detour\Source\DetourNavMesh.cpp">
+      <Filter>Source Files\Detour</Filter>
+    </ClCompile>
+    <ClCompile Include="Detour\Source\DetourNavMeshBuilder.cpp">
+      <Filter>Source Files\Detour</Filter>
+    </ClCompile>
+    <ClCompile Include="Detour\Source\DetourNavMeshQuery.cpp">
+      <Filter>Source Files\Detour</Filter>
+    </ClCompile>
+    <ClCompile Include="Detour\Source\DetourNode.cpp">
+      <Filter>Source Files\Detour</Filter>
+    </ClCompile>
+    <ClCompile Include="DetourTileCache\Source\DetourTileCache.cpp">
+      <Filter>Source Files\DetourTileCache</Filter>
+    </ClCompile>
+    <ClCompile Include="DetourTileCache\Source\DetourTileCacheBuilder.cpp">
+      <Filter>Source Files\DetourTileCache</Filter>
+    </ClCompile>
+    <ClCompile Include="RecastDemo\Source\ChunkyTriMesh.cpp">
+      <Filter>Source Files\RecastDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="RecastDemo\Source\MeshLoaderObj.cpp">
+      <Filter>Source Files\RecastDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="RecastDemo\Source\PerfTimer.cpp">
+      <Filter>Source Files\RecastDemo</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
