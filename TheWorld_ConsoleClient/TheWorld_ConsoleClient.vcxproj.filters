@@ -165,6 +165,9 @@
     <ClInclude Include="RecastDemo\Include\PerfTimer.h">
       <Filter>Header Files\RecastDemo</Filter>
     </ClInclude>
+    <ClInclude Include="TheWorld_ConsoleClient_GL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -289,6 +292,9 @@
     </ClCompile>
     <ClCompile Include="RecastDemo\Source\PerfTimer.cpp">
       <Filter>Source Files\RecastDemo</Filter>
+    </ClCompile>
+    <ClCompile Include="TheWorld_ConsoleClient_GL.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
