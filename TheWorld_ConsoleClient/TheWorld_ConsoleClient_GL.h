@@ -164,9 +164,11 @@ private:
 	virtual dtNavMesh* loadAll(const char* path);
 	virtual void saveAll(const char* path, const dtNavMesh* mesh);
 	void manageInput(bool& bLogoutRequired);
+	float clampFrameRate(void);
 	bool imguiRender(bool& bLogoutRequired);
 	void imguiDemoWindow(ImVec4& clear_color);
 	bool meshRender(bool& bLogoutRequired, float dt);
+	bool meshRenderProva(bool& bLogoutRequired, float dt);
 	void handleMeshRender(void);
 	//bool handleBuild(void);
 
