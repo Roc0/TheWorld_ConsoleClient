@@ -45,10 +45,10 @@ private:
 	virtual void manageGraphicRendering(void);
 	
 	// config
-	virtual void setRenderingMode(enum TheWorld_UIClientApp_GL::_RenderingMode r, bool bForce = false);
-	virtual enum TheWorld_UIClientApp_GL::_RenderingMode getRenderingMode(void);
-	virtual bool getInitRenderingMode(void);
-	virtual void setInitRenderingMode(bool);
+	virtual void setAppMode(enum TheWorld_UIClientApp_GL::_AppMode r, bool bForce = false);
+	virtual enum TheWorld_UIClientApp_GL::_AppMode getAppMode(void);
+	virtual bool getInitAppModeRequired(void);
+	virtual void setInitAppModeRequired(bool);
 	// config
 
 private:

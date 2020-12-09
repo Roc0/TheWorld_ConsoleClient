@@ -149,15 +149,15 @@ public:
 	void resetCommonSettings(void);
 
 	// config
-	enum _RenderingMode
+	enum _AppMode
 	{
 		InitialMenu,
 		GraphicMode
 	};
-	virtual void setRenderingMode(enum _RenderingMode r, bool bForce = false);
-	virtual enum _RenderingMode getRenderingMode(void);
-	virtual bool getInitRenderingMode(void);
-	virtual void setInitRenderingMode(bool);
+	virtual void setAppMode(enum _AppMode r, bool bForce = false);
+	virtual enum _AppMode getAppMode(void);
+	virtual bool getInitAppModeRequired(void);
+	virtual void setInitAppModeRequired(bool);
 	// config
 
 private:
@@ -233,14 +233,16 @@ private:
 	bool m_bShow_demo_window;
 	bool m_bShow_another_window;
 	bool m_bShow_helloworld_window;
-	bool m_bInitRenderingMode;
+	bool m_bInitAppModeRequired;
 	DrawMode m_drawMode;
-	enum _RenderingMode m_renderingMode;
+	enum _AppMode m_appMode;
 	InputGeom* m_geom;
 	BuildContext m_buildCtx;
 	dtNavMesh* m_navMesh;
 	dtNavMeshQuery* m_navQuery;
 	const std::string m_meshPath = "..\\TheWorld_ConsoleClient\\Meshes\\";
 	DebugDrawGL m_dd;
+	ImVec4 m_clear_color;
+
 	std::string m_message;
 };
