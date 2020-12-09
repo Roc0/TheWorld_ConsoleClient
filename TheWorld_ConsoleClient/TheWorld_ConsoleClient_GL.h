@@ -166,11 +166,14 @@ private:
 	void manageInput(bool& bLogoutRequired);
 	float clampFrameRate(void);
 	bool imguiRender(bool& bLogoutRequired);
-	void imguiDemoWindow(ImVec4& clear_color);
 	bool meshRender(bool& bLogoutRequired, float dt);
-	bool meshRenderProva(bool& bLogoutRequired, float dt);
 	void handleMeshRender(void);
 	//bool handleBuild(void);
+
+	// Prove
+	//void imguiDemoWindow(ImVec4& clear_color);
+	//bool meshRenderProva(bool& bLogoutRequired, float dt);
+	//void meshRenderProva1(void);
 
 private:
 	// Common Settings
@@ -245,4 +248,5 @@ private:
 	ImVec4 m_clear_color;
 
 	std::string m_message;
+	bool m_showGUI;
 };
