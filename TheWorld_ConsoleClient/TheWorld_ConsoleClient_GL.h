@@ -144,7 +144,7 @@ public:
 	virtual bool init(void);
 	virtual void cleanup(void);
 	virtual bool initGraphicRendering(void);
-	virtual bool manageGraphicRendering(bool& bLogoutRequired, int iLogin);
+	virtual bool handleGraphicRendering(bool& bLogoutRequired, int iLogin);
 	virtual void cleanupGraphicRendering(void);
 	void resetCommonSettings(void);
 
@@ -163,7 +163,7 @@ public:
 private:
 	virtual dtNavMesh* loadAll(const char* path);
 	virtual void saveAll(const char* path, const dtNavMesh* mesh);
-	void manageInput(bool& bLogoutRequired);
+	void handleInput(bool& bLogoutRequired);
 	float clampFrameRate(void);
 	bool imguiRender(bool& bLogoutRequired);
 	bool meshRender(bool& bLogoutRequired, float dt);
@@ -249,4 +249,7 @@ private:
 
 	std::string m_message;
 	bool m_showGUI;
+	bool m_processHitTest;
+	bool m_processHitTestShift;
+
 };
