@@ -169,7 +169,7 @@ private:
 	bool imguiRender(bool& bLogoutRequired);
 	bool meshRender(bool& bLogoutRequired, float dt);
 	void handleMeshRender(void);
-	void drawAgentMousePos(GLdouble* modelviewMatrix, GLdouble* projectionMatrix);
+	void drawAgentMousePos(void);
 	void drawAgentWorldPos(const float* pos);
 	//bool handleBuild(void);
 
@@ -216,8 +216,6 @@ private:
 	float m_cameraPos[3];
 	float m_cameraEulers[2];
 	float m_origCameraEulers[2];
-	float m_rayStart[3];
-	float m_rayEnd[3];
 	bool m_mouseOverMenu;
 	bool m_bRotate;
 	bool m_movedDuringRotate;
@@ -230,10 +228,15 @@ private:
 	float m_scrollZoom;
 	Uint32 m_prevFrameTime;
 
+	bool m_bAgentMousePosDrawn;
+	float m_worldPosFromMousePos[3];
+
 	float m_bFullScreen;
 	SDL_Window* m_window;
 	SDL_GLContext m_gl_context;
 	GLint m_viewport[4];
+	GLdouble m_projectionMatrix[16];
+	GLdouble m_modelviewMatrix[16];
 	Uint32 m_uiFlags;
 	int m_iWidth;
 	int m_iHeight;
