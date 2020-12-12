@@ -164,24 +164,28 @@ private:
 	virtual dtNavMesh* loadAll(const char* path);
 	virtual void saveAll(const char* path, const dtNavMesh* mesh);
 	void handleInput(bool& bLogoutRequired);
+	void setViewport(void);
 	float clampFrameRate(void);
 	bool imguiRender(bool& bLogoutRequired);
 	bool meshRender(bool& bLogoutRequired, float dt);
 	void handleMeshRender(void);
+	void drawAgentMousePos(GLdouble* modelviewMatrix, GLdouble* projectionMatrix);
+	void drawAgentWorldPos(const float* pos);
 	//bool handleBuild(void);
 
 	// Prove
 	//void imguiDemoWindow(ImVec4& clear_color);
 	//bool meshRenderProva(bool& bLogoutRequired, float dt);
 	//void meshRenderProva1(void);
+	// Prove
 
 private:
 	// Common Settings
 	float m_cellSize;
 	float m_cellHeight;
-	float m_agentHeight;
-	float m_agentRadius;
-	float m_agentMaxClimb;
+	float m_agentHeight;	// Draw AGent Setting
+	float m_agentRadius;	// Draw AGent Setting
+	float m_agentMaxClimb;	// Draw AGent Setting
 	float m_agentMaxSlope;
 	float m_regionMinSize;
 	float m_regionMergeSize;
@@ -229,6 +233,7 @@ private:
 	float m_bFullScreen;
 	SDL_Window* m_window;
 	SDL_GLContext m_gl_context;
+	GLint m_viewport[4];
 	Uint32 m_uiFlags;
 	int m_iWidth;
 	int m_iHeight;
@@ -249,7 +254,7 @@ private:
 
 	std::string m_message;
 	bool m_showGUI;
-	bool m_processHitTest;
-	bool m_processHitTestShift;
+	//bool m_processHitTest;
+	//bool m_processHitTestShift;
 
 };
