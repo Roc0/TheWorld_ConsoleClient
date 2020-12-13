@@ -13,15 +13,14 @@
 
 #include <boost/thread/thread.hpp>
 
-HINSTANCE g_hKBEngineDll = NULL;
 typedef std::map<KBEngine::ENTITY_ID, std::tr1::shared_ptr<KBEntity> > ENTITIES;
 typedef std::map<KBEngine::DBID, std::tr1::shared_ptr<KBAvatar> > AVATARS;
 
-class TheWorld_UIClientApp : public KBEngine::EventHandle
+class TheWorld_ClientApp : public KBEngine::EventHandle
 {
 public:
-	TheWorld_UIClientApp(void);
-	virtual ~TheWorld_UIClientApp(void);
+	TheWorld_ClientApp(void);
+	virtual ~TheWorld_ClientApp(void);
 	virtual void go(void);
 	virtual bool kbengine_Login(const char* accountname, const char* passwd, const char* datas = NULL, KBEngine::uint32 datasize = 0, const char* ip = NULL, KBEngine::uint32 port = 0);
 	virtual bool kbengine_Logout(void);
@@ -29,6 +28,8 @@ public:
 	virtual bool kbengine_CreateAvatar(std::string avatarName);
 	virtual bool kbengine_RemoveAvatar(std::string avatarName);
 	virtual bool kbengine_SelectAvatarGame(KBEngine::DBID avatarDBID);
+	virtual SpaceWorld* getSpaceWorld(void) { return m_pSpaceWorld; };
+	virtual ENTITIES& getEntities(void) { return m_Entities; };
 
 private:
 	virtual void kbengine_onEvent(const KBEngine::EventData* lpEventData);
@@ -45,8 +46,8 @@ private:
 	virtual void manageGraphicRendering(void);
 	
 	// config
-	virtual void setAppMode(enum TheWorld_UIClientApp_GL::_AppMode r, bool bForce = false);
-	virtual enum TheWorld_UIClientApp_GL::_AppMode getAppMode(void);
+	virtual void setAppMode(enum TheWorld_ClientApp_GL::_AppMode r, bool bForce = false);
+	virtual enum TheWorld_ClientApp_GL::_AppMode getAppMode(void);
 	virtual bool getInitAppModeRequired(void);
 	virtual void setInitAppModeRequired(bool);
 	// config
@@ -71,7 +72,7 @@ private:
 	bool m_bServerClosed;
 
 private:
-	TheWorld_UIClientApp_GL* m_pGLClientApp;
+	TheWorld_ClientApp_GL* m_pGLClientApp;
 
 	//AVATARS
 	ENTITIES m_Entities;

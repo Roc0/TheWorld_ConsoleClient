@@ -3,21 +3,21 @@
 
 Space::Space(KBEngine::SPACE_ID spaceID, const std::string& resPath)
 {
-	mSpaceID = spaceID;
-	mResPath = resPath;
+	m_spaceID = spaceID;
+	m_resPath = resPath;
 }
 
 void Space::dumpStatus(int idx, bool minidump)
 {
 	if (minidump)
 	{
-		printf("SPACE - SpaceID ==> %d, ResPath ==> %s\n", (int)mSpaceID, mResPath.c_str());
+		printf("SPACE - SpaceID ==> %d, ResPath ==> %s\n", (int)m_spaceID, m_resPath.c_str());
 	}
 	else
 	{
 		printf("*** ( Space %d) ******************************************************\n", idx);
-		printf("   SpaceID ==> %d\n", (int)mSpaceID);
-		printf("   ResPath ==> %s\n", mResPath.c_str());
+		printf("   SpaceID ==> %d\n", (int)m_spaceID);
+		printf("   ResPath ==> %s\n", m_resPath.c_str());
 		printf("*** ( Space %d) ******************************************************\n\n", idx);
 	}
 }
@@ -34,11 +34,11 @@ SpaceWorld::~SpaceWorld()
 void SpaceWorld::addSpace(KBEngine::SPACE_ID spaceID, const std::string& resPath)
 {
 	char str[256];
-	SPACES::iterator iter = mSpaces.find(spaceID);
-	if (iter == mSpaces.end())
+	SPACES::iterator iter = m_Spaces.find(spaceID);
+	if (iter == m_Spaces.end())
 	{
 		Space *pSpace = new Space(spaceID, resPath);
-		mSpaces[spaceID].reset(pSpace);
+		m_Spaces[spaceID].reset(pSpace);
 	}
 	else
 	{
@@ -47,11 +47,24 @@ void SpaceWorld::addSpace(KBEngine::SPACE_ID spaceID, const std::string& resPath
 	}
 }
 
+Space* SpaceWorld::findSpace(KBEngine::SPACE_ID spaceID)
+{
+	SPACES::iterator iter = m_Spaces.find(spaceID);
+	if (iter == m_Spaces.end())
+	{
+		return NULL;
+	}
+	else
+	{
+		return iter->second.get();
+	}
+}
+
 void SpaceWorld::dumpStatus(bool minidump)
 {
-	SPACES::iterator iter = mSpaces.begin();
+	SPACES::iterator iter = m_Spaces.begin();
 	int idx = 0;
-	for (; iter != mSpaces.end(); iter++)
+	for (; iter != m_Spaces.end(); iter++)
 	{
 		idx++;
 		Space* pSpace = iter->second.get();

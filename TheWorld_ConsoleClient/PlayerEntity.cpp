@@ -4,8 +4,8 @@
 
 PlayerEntity::PlayerEntity(KBEngine::ENTITY_ID eid, SpaceWorld *pSpaceWorld) : KBEntity(eid, pSpaceWorld)
 {
-	mInWorld = true;
-	mPlayer = true;
+	m_bIsInWorld = false;
+	m_bIsPlayer = true;
 }
 
 

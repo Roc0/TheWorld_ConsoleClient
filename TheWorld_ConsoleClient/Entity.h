@@ -20,90 +20,107 @@ public:
 
 	void setDestPosition(float x, float y, float z)
 	{
-		mDestPos.x = x;
-		mDestPos.y = y;
-		mDestPos.z = z;
+		m_destPos.x = x;
+		m_destPos.y = y;
+		m_destPos.z = z;
 	}
 
 	void setPosition(float x, float y, float z)
 	{
-		mPos.x = x;
-		mPos.y = y;
-		mPos.z = z;
+		m_pos.x = x;
+		m_pos.y = y;
+		m_pos.z = z;
+	}
+
+	void getPosition(float& x, float& y, float& z)
+	{
+		x = m_pos.x;
+		y = m_pos.y;
+		z = m_pos.z;
 	}
 
 	void setDestDirection(float yaw, float pitch, float roll)
 	{
-		mDestDir.x = roll;
-		mDestDir.y = pitch;
-		mDestDir.z = yaw;
+		m_destDir.x = roll;
+		m_destDir.y = pitch;
+		m_destDir.z = yaw;
 	}
 
 	void setDirection(float yaw, float pitch, float roll)
 	{
-		mDir.z = yaw;
-		mDir.y = pitch;
-		mDir.x = roll;
+		m_dir.z = yaw;
+		m_dir.y = pitch;
+		m_dir.x = roll;
 	}
 
 	void setMoveSpeed(float speed)
 	{
-		mMoveSpeed = speed;
+		m_moveSpeed = speed;
 	}
 
 	void setSpaceID(KBEngine::SPACE_ID spaceID)
 	{
-		mSpaceID = spaceID;
+		m_spaceId = spaceID;
 	}
 
 	void setIsOnGround(bool isOnGround)
 	{
-		mIsOnGround = isOnGround;
+		m_bIsOnGround = isOnGround;
 	}
 
 	void setRes(const std::string & res)
 	{
-		mRes = res;
+		m_res = res;
 	}
 	
 	void setModelScale(float modelScale)
 	{
-		mModelScale = modelScale;
+		m_modelScale = modelScale;
 	}
 
 	void setName(const std::string& name)
 	{
-		mName = name;
+		m_name = name;
 	}
 	
-	void inWorld(bool inWorld)
+	std::string getName(void)
 	{
-		mInWorld = inWorld;
+		return m_name;
+	}
+
+	void setIsInWorld(bool isInWorld)
+	{
+		m_bIsInWorld = isInWorld;
+	}
+
+	bool getIsInWorld(void)
+	{
+		return m_bIsInWorld;
 	}
 
 	void setModelID(uint32_t modelID)
 	{
-		mModelID = modelID;
+		m_modelId = modelID;
 	}
 	
 	void setState(uint32_t state)
 	{
-		mState = state;
+		m_state = state;
 	}
 
 	void setHPMax(uint32_t HPMax)
 	{
-		mHPMax = HPMax;
+		m_HPMax = HPMax;
 	}
 
 	void setMPMax(uint32_t MPMax)
 	{
-		mMPMax = MPMax;
+		m_MPMax = MPMax;
 	}
 
-	KBEngine::ENTITY_ID id()const { return mEID; }
+	KBEngine::ENTITY_ID id()const { return m_eid; }
 
-	bool IsPlayer() { return mPlayer;  }
+	bool isPlayer() { return m_bIsPlayer;  }
 
 	void attack(KBEntity* receiver, uint32_t skillID, uint32_t damageType, uint32_t damage);
 	void recvDamage(KBEntity* attacker, uint32_t skillID, uint32_t damageType, uint32_t damage);
@@ -111,20 +128,20 @@ public:
 	void dumpStatus(int idx, bool minidump);
 
 protected:
-	KBEngine::ENTITY_ID mEID;				// entityID
-	KBEngine::SPACE_ID mSpaceID;
-	float mMoveSpeed;
-	Vector3 mDestPos, mPos, mDestDir, mDir;
-	bool mIsOnGround;
-	std::string mRes;
-	SpaceWorld *mSPaceWorld;
-	float mModelScale;
-	bool mInWorld;
-	bool mPlayer;
-	std::string mName;
+	KBEngine::ENTITY_ID m_eid;				// entityID
+	KBEngine::SPACE_ID m_spaceId;
+	float m_moveSpeed;
+	Vector3 m_destPos, m_pos, m_destDir, m_dir;
+	bool m_bIsOnGround;
+	std::string m_res;
+	SpaceWorld *m_pSpaceWorld;
+	float m_modelScale;
+	bool m_bIsInWorld;
+	bool m_bIsPlayer;
+	std::string m_name;
 
-	uint32_t mModelID;
-	int32_t mState;
-	int32_t mHPMax;
-	int32_t mMPMax;
+	uint32_t m_modelId;
+	int32_t m_state;
+	int32_t m_HPMax;
+	int32_t m_MPMax;
 };

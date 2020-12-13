@@ -6,6 +6,7 @@
 
 //#include "TheWorld_ClientDll.h"
 //#include "client_lib/event.h"
+//#include "TheWorld_ConsoleClient.h"
 #include "SpaceWorld.h"
 #include "Entity.h"
 #include "Avatar.h"
@@ -135,11 +136,13 @@ protected:
 	///@}
 };
 
-class TheWorld_UIClientApp_GL
+class TheWorld_ClientApp;
+
+class TheWorld_ClientApp_GL
 {
 public:
-	TheWorld_UIClientApp_GL(void);
-	virtual ~TheWorld_UIClientApp_GL(void);
+	TheWorld_ClientApp_GL(TheWorld_ClientApp* pClientApp);
+	virtual ~TheWorld_ClientApp_GL(void);
 
 	virtual bool init(void);
 	virtual void cleanup(void);
@@ -147,6 +150,8 @@ public:
 	virtual bool handleGraphicRendering(bool& bLogoutRequired, int iLogin);
 	virtual void cleanupGraphicRendering(void);
 	void resetCommonSettings(void);
+	bool playerEnterSpace(KBEngine::SPACE_ID spaceID);
+	void playerLeaveSpace(KBEngine::SPACE_ID spaceID);
 
 	// config
 	enum _AppMode
@@ -166,11 +171,12 @@ private:
 	void handleInput(bool& bLogoutRequired);
 	void setViewport(void);
 	float clampFrameRate(void);
-	bool imguiRender(bool& bLogoutRequired);
-	bool meshRender(bool& bLogoutRequired, float dt);
+	bool renderImgui(bool& bLogoutRequired);
+	bool renderMesh(bool& bLogoutRequired, float dt);
+	bool drawNPCs(bool& bLogoutRequired, float dt);
 	void handleMeshRender(void);
-	void drawAgentMousePos(void);
-	void drawAgentWorldPos(const float* pos);
+	void drawAgentMousePos(const unsigned int agentCol);
+	void drawAgentWorldPos(const float* pos, const unsigned int agentCol);
 	//bool handleBuild(void);
 
 	// Prove
@@ -197,6 +203,8 @@ private:
 	int m_partitionType;
 	// Common Settings
 
+	TheWorld_ClientApp* m_pClientApp;
+	
 	unsigned char m_navMeshDrawFlags;
 
 	BuildContext* m_ctx;
@@ -245,13 +253,17 @@ private:
 	bool m_bShow_another_window;
 	bool m_bShow_helloworld_window;
 	bool m_bInitAppModeRequired;
+	bool m_bReinitAppModeRequired;
 	DrawMode m_drawMode;
 	enum _AppMode m_appMode;
+	
+	KBEngine::SPACE_ID m_playerSpaceId;
 	InputGeom* m_geom;
 	BuildContext m_buildCtx;
 	dtNavMesh* m_navMesh;
 	dtNavMeshQuery* m_navQuery;
 	const std::string m_meshPath = "..\\TheWorld_ConsoleClient\\Meshes\\";
+	
 	DebugDrawGL m_dd;
 	ImVec4 m_clear_color;
 

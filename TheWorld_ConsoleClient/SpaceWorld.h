@@ -6,10 +6,11 @@ class Space {
 public:
 	Space(KBEngine::SPACE_ID spaceID, const std::string& resPath);
 	void dumpStatus(int idx, bool minidump);
+	std::string getResPath() { return m_resPath; }
 
 protected:
-	KBEngine::SPACE_ID mSpaceID;
-	std::string mResPath;
+	KBEngine::SPACE_ID m_spaceID;
+	std::string m_resPath;
 };
 
 
@@ -22,9 +23,10 @@ public:
 	SpaceWorld();
 	virtual ~SpaceWorld();
 	void addSpace(KBEngine::SPACE_ID spaceID, const std::string& resPath);
+	Space* findSpace(KBEngine::SPACE_ID spaceID);
 	void dumpStatus(bool minidump);
 
 protected:
-	SPACES mSpaces;
+	SPACES m_Spaces;
 };
 

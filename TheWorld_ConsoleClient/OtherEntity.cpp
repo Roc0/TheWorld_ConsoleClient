@@ -3,8 +3,8 @@
 
 OtherEntity::OtherEntity(KBEngine::ENTITY_ID eid, SpaceWorld *pSpaceWorld) : KBEntity(eid, pSpaceWorld)
 {
-	mInWorld = false;
-	mPlayer = false;
+	m_bIsInWorld = false;
+	m_bIsPlayer = false;
 }
 
 
