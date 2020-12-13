@@ -27,9 +27,12 @@ public:
 
 	void setPosition(float x, float y, float z)
 	{
-		m_pos.x = x;
-		m_pos.y = y;
-		m_pos.z = z;
+		if (x)
+			m_pos.x = x;
+		if (y)
+			m_pos.y = y;
+		if (z)
+			m_pos.z = z;
 	}
 
 	void getPosition(float& x, float& y, float& z)
