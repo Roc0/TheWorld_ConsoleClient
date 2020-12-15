@@ -20,9 +20,12 @@ public:
 
 	void setDestPosition(float x, float y, float z)
 	{
-		m_destPos.x = x;
-		m_destPos.y = y;
-		m_destPos.z = z;
+		if (x)
+			m_destPos.x = x;
+		if (y)
+			m_destPos.y = y;
+		if (z)
+			m_destPos.z = z;
 	}
 
 	void setPosition(float x, float y, float z)
@@ -44,16 +47,22 @@ public:
 
 	void setDestDirection(float yaw, float pitch, float roll)
 	{
-		m_destDir.x = roll;
-		m_destDir.y = pitch;
-		m_destDir.z = yaw;
+		if (yaw)
+			m_destDir.x = roll;
+		if (pitch)
+			m_destDir.y = pitch;
+		if (roll)
+			m_destDir.z = yaw;
 	}
 
 	void setDirection(float yaw, float pitch, float roll)
 	{
-		m_dir.z = yaw;
-		m_dir.y = pitch;
-		m_dir.x = roll;
+		if (yaw)
+			m_dir.z = yaw;
+		if (pitch)
+			m_dir.y = pitch;
+		if (roll)
+			m_dir.x = roll;
 	}
 
 	void setMoveSpeed(float speed)
