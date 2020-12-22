@@ -3,7 +3,7 @@
 
 #include "TheWorld_ClientDll.h"
 
-class Vector3
+class _Vector3
 {
 public:
 	float x;
@@ -14,7 +14,7 @@ public:
 class KBEntity
 {
 protected:
-	KBEntity(KBEngine::ENTITY_ID eid, SpaceWorld *pSpaceWorld);
+	KBEntity(KBEngine::ENTITY_ID eid, SpaceWorld* pSpaceWorld);
 public:
 	virtual ~KBEntity();
 
@@ -99,6 +99,11 @@ public:
 		m_bIsOnGround = isOnGround;
 	}
 
+	bool getIsOnGround(void)
+	{
+		return kbe_isOnGround(m_eid);
+	}
+
 	void setRes(const std::string & res)
 	{
 		m_res = res;
@@ -172,7 +177,7 @@ protected:
 	KBEngine::ENTITY_ID m_eid;				// entityID
 	KBEngine::SPACE_ID m_spaceId;
 	float m_moveSpeed;
-	Vector3 m_destPos, m_pos, m_destDir, m_dir;
+	_Vector3 m_destPos, m_pos, m_destDir, m_dir;
 	bool m_bIsOnGround;
 	std::string m_res;
 	SpaceWorld *m_pSpaceWorld;

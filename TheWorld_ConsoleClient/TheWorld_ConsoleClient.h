@@ -32,6 +32,18 @@ public:
 	virtual bool kbengine_SelectAvatarGame(KBEngine::DBID avatarDBID);
 	virtual SpaceWorld* getSpaceWorld(void) { return m_pSpaceWorld; };
 	virtual ENTITIES& getEntities(void) { return m_Entities; };
+	virtual KBEntity* getPlayerEntity(void) { return m_pPlayerEntity; }
+	virtual KBEntity* getTargetEntity(void) { return m_pTargetEntity; }
+	virtual KBEntity* getEntity(KBEngine::ENTITY_ID eid)
+	{
+		ENTITIES::iterator iter = m_Entities.find(eid);
+		if (iter == m_Entities.end())
+			return NULL;
+		else
+			return iter->second.get();
+	}
+	virtual void setTargetEntity(KBEngine::ENTITY_ID eid) { m_pTargetEntity = getEntity(eid); }
+	virtual void setTargetEntity(KBEntity* pTarget) { m_pTargetEntity = pTarget; }
 
 private:
 	virtual void kbengine_onEvent(const KBEngine::EventData* lpEventData);
@@ -78,8 +90,8 @@ private:
 
 	//AVATARS
 	ENTITIES m_Entities;
-	KBEntity* m_pPlayer;
-	KBEntity* m_pTarget;
+	KBEntity* m_pPlayerEntity;
+	KBEntity* m_pTargetEntity;
 	KBEntity* m_pMouseTarget;
 	//------
 
