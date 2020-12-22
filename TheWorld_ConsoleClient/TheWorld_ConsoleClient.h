@@ -13,6 +13,8 @@
 
 #include <boost/thread/thread.hpp>
 
+bool caseInSensStringEqual(std::string& str1, std::string& str2);
+
 typedef std::map<KBEngine::ENTITY_ID, std::tr1::shared_ptr<KBEntity> > ENTITIES;
 typedef std::map<KBEngine::DBID, std::tr1::shared_ptr<KBAvatar> > AVATARS;
 

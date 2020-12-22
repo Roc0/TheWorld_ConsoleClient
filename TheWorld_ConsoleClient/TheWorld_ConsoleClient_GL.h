@@ -173,8 +173,9 @@ private:
 	float clampFrameRate(void);
 	bool renderImgui(bool& bLogoutRequired);
 	bool renderMesh(bool& bLogoutRequired, float dt);
-	bool drawNPCs(bool& bLogoutRequired, float dt);
+	bool drawEntities(bool& bLogoutRequired, float dt);
 	void handleMeshRender(void);
+	float drawAgentWorldPos(const float x, const float y, const unsigned int agentCol);
 	void drawAgentMousePos(const unsigned int agentCol);
 	void drawAgentWorldPos(const float* pos, const unsigned int agentCol);
 	//bool handleBuild(void);
@@ -207,13 +208,14 @@ private:
 	
 	unsigned char m_navMeshDrawFlags;
 
-	BuildContext* m_ctx;
+	BuildContext m_ctx;
 	rcCompactHeightfield* m_pchf;
 	rcHeightfield* m_psolid;
 	rcContourSet* m_pcset;
 	rcPolyMesh* m_pmesh;
 	rcConfig m_cfg;
 	rcPolyMeshDetail* m_dmesh;
+	unsigned char* m_triareas;
 
 	float m_fFieldOfViewAngleY;
 	float m_fZNear;
@@ -226,7 +228,7 @@ private:
 	float m_origCameraEulers[2];
 	bool m_mouseOverMenu;
 	bool m_bRotate;
-	bool m_movedDuringRotate;
+	//bool m_movedDuringRotate;
 	float m_moveFront;
 	float m_moveBack;
 	float m_moveLeft;
@@ -234,6 +236,7 @@ private:
 	float m_moveUp;
 	float m_moveDown;
 	float m_scrollZoom;
+	float m_tickRotateXAxis;
 	Uint32 m_prevFrameTime;
 
 	bool m_bAgentMousePosDrawn;
@@ -269,6 +272,7 @@ private:
 
 	std::string m_message;
 	bool m_showGUI;
+	bool m_showAgentDetails;
 	//bool m_processHitTest;
 	//bool m_processHitTestShift;
 
