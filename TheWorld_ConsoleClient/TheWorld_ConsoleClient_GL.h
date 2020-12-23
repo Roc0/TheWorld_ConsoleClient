@@ -168,7 +168,7 @@ public:
 private:
 	virtual dtNavMesh* loadAll(const char* path);
 	virtual void saveAll(const char* path, const dtNavMesh* mesh);
-	void handleInput(bool& bLogoutRequired);
+	void handleInput(bool& bLogoutRequired, float dt);
 	void setViewport(void);
 	float clampFrameRate(void);
 	bool renderImgui(bool& bLogoutRequired);
@@ -178,6 +178,7 @@ private:
 	float drawAgentWorldPos(const float x, const float y, const unsigned int agentCol);
 	void drawAgentMousePos(const unsigned int agentCol);
 	void drawAgentWorldPos(const float* pos, const unsigned int agentCol);
+	void updatePlayerToServer(void);
 	//bool handleBuild(void);
 
 	// Prove
@@ -237,6 +238,7 @@ private:
 	float m_moveDown;
 	float m_scrollZoom;
 	float m_tickRotateXAxis;
+	float m_keybSpeed;
 	Uint32 m_prevFrameTime;
 
 	bool m_bAgentMousePosDrawn;

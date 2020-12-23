@@ -18,7 +18,7 @@ protected:
 public:
 	virtual ~KBEntity();
 
-	/*void setDestPosition(float x, float y, float z)
+	void setDesideredPosition(float x, float y, float z)
 	{
 		if (x)
 			m_destPos.x = x;
@@ -26,7 +26,14 @@ public:
 			m_destPos.y = y;
 		if (z)
 			m_destPos.z = z;
-	}*/
+	}
+
+	void getDesideredPosition(float& x, float& y, float& z)
+	{
+		x = m_destPos.x;
+		y = m_destPos.y;
+		z = m_destPos.z;
+	}
 
 	void setPosition(float x, float y, float z)
 	{
@@ -45,7 +52,7 @@ public:
 		z = m_pos.z;
 	}
 
-	/*void setDestDirection(float yaw, float pitch, float roll)
+	void setDesideredDirection(float yaw, float pitch, float roll)
 	{
 		if (yaw)
 			m_destDir.x = roll;
@@ -55,12 +62,12 @@ public:
 			m_destDir.z = yaw;
 	}
 
-	void getDestDirection(float& yaw, float& pitch, float& roll)
+	void getDesideredDirection(float& yaw, float& pitch, float& roll)
 	{
 		yaw = m_destDir.z;
 		pitch = m_destDir.y;
 		roll = m_destDir.x;
-	}*/
+	}
 
 	void setDirection(float yaw, float pitch, float roll)
 	{
