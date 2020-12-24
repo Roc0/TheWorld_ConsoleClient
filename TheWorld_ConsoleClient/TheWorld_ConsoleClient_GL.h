@@ -18,6 +18,15 @@
 #include <DetourNavMeshQuery.h>
 #include "DebugDraw.h"
 
+#include "SDL.h"
+#include "SDL_opengl.h"
+#include <GL/glu.h>
+#include "Recast.h"
+#include "RecastDebugDraw.h"
+#include "imgui.h"
+#include "imgui_impl_opengl2.h"
+#include "imgui_impl_sdl.h"
+
 static const int NAVMESHSET_MAGIC = 'M' << 24 | 'S' << 16 | 'E' << 8 | 'T'; //'MSET';
 static const int NAVMESHSET_VERSION = 1;
 
@@ -136,12 +145,12 @@ protected:
 	///@}
 };
 
-class TheWorld_ClientApp;
+class TheWorld_ClientAppConsole;
 
 class TheWorld_ClientApp_GL
 {
 public:
-	TheWorld_ClientApp_GL(TheWorld_ClientApp* pClientApp);
+	TheWorld_ClientApp_GL(TheWorld_ClientAppConsole* pClientApp);
 	virtual ~TheWorld_ClientApp_GL(void);
 
 	virtual bool init(void);
@@ -205,7 +214,7 @@ private:
 	int m_partitionType;
 	// Common Settings
 
-	TheWorld_ClientApp* m_pClientApp;
+	TheWorld_ClientAppConsole* m_pClientApp;
 	
 	unsigned char m_navMeshDrawFlags;
 
