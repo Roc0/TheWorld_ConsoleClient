@@ -29,20 +29,9 @@ private:
 	virtual void doMainLoop(void);
 	virtual void manageInitialMenu(void);
 	virtual void manageGraphicRendering(void);
-	virtual void client_onEvent(const KBEngine::EventData* lpEventData);
-
-	// config
-	virtual void setAppMode(enum TheWorld_ClientApp_GL::_AppMode r, bool bForce = false);
-	virtual enum TheWorld_ClientApp_GL::_AppMode getAppMode(void);
-	virtual bool getInitAppModeRequired(void);
-	virtual void setInitAppModeRequired(bool);
-	// config
-	virtual void setShutdownRequired(bool b) { m_bShutDown = b; };
-	virtual bool getShutdownRequired(void) { return m_bShutDown; };
 
 private:
-	bool m_bShutDown;
-	bool m_bServerClosed;
+	//bool m_bServerClosed;
 	int m_iSelectAvatarPending;
 #define SELECT_AVATAR_NOT_PENDING	0
 #define SELECT_AVATAR_PENDING		1

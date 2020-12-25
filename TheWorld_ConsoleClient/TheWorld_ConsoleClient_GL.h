@@ -159,20 +159,6 @@ public:
 	virtual bool handleGraphicRendering(bool& bLogoutRequired, int iLogin);
 	virtual void cleanupGraphicRendering(void);
 	void resetCommonSettings(void);
-	bool playerEnterSpace(KBEngine::SPACE_ID spaceID);
-	void playerLeaveSpace(KBEngine::SPACE_ID spaceID);
-
-	// config
-	enum _AppMode
-	{
-		InitialMenu,
-		GraphicMode
-	};
-	virtual void setAppMode(enum _AppMode r, bool bForce = false);
-	virtual enum _AppMode getAppMode(void);
-	virtual bool getInitAppModeRequired(void);
-	virtual void setInitAppModeRequired(bool);
-	// config
 
 private:
 	virtual dtNavMesh* loadAll(const char* path);
@@ -266,12 +252,8 @@ private:
 	bool m_bShow_demo_window;
 	bool m_bShow_another_window;
 	bool m_bShow_helloworld_window;
-	bool m_bInitAppModeRequired;
-	bool m_bReinitAppModeRequired;
 	DrawMode m_drawMode;
-	enum _AppMode m_appMode;
 	
-	KBEngine::SPACE_ID m_playerSpaceId;
 	InputGeom* m_geom;
 	BuildContext m_buildCtx;
 	dtNavMesh* m_navMesh;
