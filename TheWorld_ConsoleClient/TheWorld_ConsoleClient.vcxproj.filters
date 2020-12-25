@@ -60,21 +60,6 @@
     <ClInclude Include="TheWorld_ConsoleClient.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Entity.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerEntity.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="OtherEntity.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SpaceWorld.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Avatar.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Recast\Include\Recast.h">
       <Filter>Header Files\Recast</Filter>
     </ClInclude>
@@ -174,21 +159,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TheWorld_ConsoleClient.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Entity.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerEntity.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OtherEntity.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SpaceWorld.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Avatar.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Recast\Source\Recast.cpp">
