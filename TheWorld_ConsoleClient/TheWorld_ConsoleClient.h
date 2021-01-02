@@ -29,6 +29,11 @@ private:
 	virtual void doMainLoop(void);
 	virtual void manageInitialMenu(void);
 	virtual void manageGraphicRendering(void);
+	
+	virtual void onLoginSuccess(void) {};
+	virtual void onLoginFailed(int failCode) {};
+	virtual void onServerClosed(void) {};
+	virtual void onKicked(int failCode) {};
 
 private:
 	//bool m_bServerClosed;
