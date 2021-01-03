@@ -34,6 +34,7 @@ private:
 	virtual void onLoginFailed(int failCode) {};
 	virtual void onServerClosed(void) {};
 	virtual void onKicked(int failCode) {};
+	virtual void onUpdateAvatars(void) {};
 
 private:
 	//bool m_bServerClosed;
