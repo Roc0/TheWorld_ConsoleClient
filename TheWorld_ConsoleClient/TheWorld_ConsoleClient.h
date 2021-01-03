@@ -35,6 +35,9 @@ private:
 	virtual void onServerClosed(void) {};
 	virtual void onKicked(int failCode) {};
 	virtual void onUpdateAvatars(void) {};
+	virtual void onPlayerEnterSpace(KBEngine::SPACE_ID spaceId) {};
+	virtual void onPlayerLeaveSpace(KBEngine::SPACE_ID spaceId) {};
+	virtual void onAddSpaceGeoMapping(KBEngine::SPACE_ID, const char* resPath) {};
 
 private:
 	//bool m_bServerClosed;
