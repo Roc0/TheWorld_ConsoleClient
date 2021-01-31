@@ -34,6 +34,11 @@ private:
 	virtual void onLoginFailed(int failCode) {};
 	virtual void onServerClosed(void) {};
 	virtual void onKicked(int failCode) {};
+	virtual void onClearEntities(void) {};
+	virtual void onCreatedEntity(KBEngine::ENTITY_ID eid, bool bPlayer) {};
+	virtual void onEraseEntity(KBEngine::ENTITY_ID eid) {};
+	virtual void onClearAvatars(void) {};
+	virtual void onEraseAvatar(KBEngine::DBID dbid) {};
 	virtual void onUpdateAvatars(void) {};
 	virtual void onPlayerEnterSpace(KBEngine::SPACE_ID spaceId) {};
 	virtual void onPlayerLeaveSpace(KBEngine::SPACE_ID spaceId) {};
