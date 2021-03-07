@@ -10,7 +10,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TheWorld_ConsoleClient", "T
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "lib_json", "..\jsoncpp\makefiles\vs71\lib_json.vcxproj", "{B84F7231-16CE-41D8-8C08-7B523FF4225B}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TheWorld_ClientDll", "C:\TheWorld\Client\TheWorld_ClientDll\TheWorld_ClientDll.vcxproj", "{58429F05-FB0E-4418-8C75-BEE6ED0C5B6C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TheWorld_ClientDll", "..\TheWorld_ClientDll\TheWorld_ClientDll.vcxproj", "{58429F05-FB0E-4418-8C75-BEE6ED0C5B6C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

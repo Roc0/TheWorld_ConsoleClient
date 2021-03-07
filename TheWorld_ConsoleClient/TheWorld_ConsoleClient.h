@@ -43,6 +43,7 @@ private:
 	virtual void onPlayerEnterSpace(KBEngine::SPACE_ID spaceId) {};
 	virtual void onPlayerLeaveSpace(KBEngine::SPACE_ID spaceId) {};
 	virtual void onAddSpaceGeoMapping(KBEngine::SPACE_ID, const char* resPath) {};
+	virtual bool isDebugEnabled(void) { return true; };
 
 private:
 	//bool m_bServerClosed;
