@@ -40,8 +40,12 @@ private:
 	virtual void onClearAvatars(void) {};
 	virtual void onEraseAvatar(KBEngine::DBID dbid) {};
 	virtual void onUpdateAvatars(void) {};
-	virtual void onPlayerEnterSpace(KBEngine::SPACE_ID spaceId) {};
-	virtual void onPlayerLeaveSpace(KBEngine::SPACE_ID spaceId) {};
+	virtual void onEntityEnterWorld(KBEngine::ENTITY_ID eid) {};
+	virtual void onEntityLeaveWorld(KBEngine::ENTITY_ID eid) {};
+	virtual void onEntityEnterSpace(KBEngine::ENTITY_ID eid, KBEngine::SPACE_ID spaceId) {};
+	virtual void onEntityLeaveSpace(KBEngine::ENTITY_ID eid, KBEngine::SPACE_ID spaceId) {};
+	virtual void onPlayerEnterSpace(KBEngine::ENTITY_ID eid, KBEngine::SPACE_ID spaceId) {};
+	virtual void onPlayerLeaveSpace(KBEngine::ENTITY_ID eid, KBEngine::SPACE_ID spaceId) {};
 	virtual void onAddSpaceGeoMapping(KBEngine::SPACE_ID, const char* resPath) {};
 	virtual bool isDebugEnabled(void) { return true; };
 
