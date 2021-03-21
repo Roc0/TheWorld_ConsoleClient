@@ -47,6 +47,12 @@ private:
 	virtual void onPlayerEnterSpace(KBEngine::ENTITY_ID eid, KBEngine::SPACE_ID spaceId) {};
 	virtual void onPlayerLeaveSpace(KBEngine::ENTITY_ID eid, KBEngine::SPACE_ID spaceId) {};
 	virtual void onAddSpaceGeoMapping(KBEngine::SPACE_ID, const char* resPath) {};
+	virtual void onMaxHPChanged(KBEngine::ENTITY_ID eid, int MaxHP) {};
+	virtual void onMaxMPChanged(KBEngine::ENTITY_ID eid, int MaxMP) {};
+	virtual void onHPChanged(KBEngine::ENTITY_ID eid, int HP) {};
+	virtual void onMPChanged(KBEngine::ENTITY_ID eid, int MP) {};
+	virtual void onRecvDamage(KBEngine::ENTITY_ID eid, KBEngine::ENTITY_ID attacker, int skillID, int damageType, int damage) {};
+	virtual void onAttackDamage(KBEngine::ENTITY_ID eid, KBEngine::ENTITY_ID receiver, int skillID, int damageType, int damage) {};
 	virtual bool isDebugEnabled(void) { return true; };
 
 private:
